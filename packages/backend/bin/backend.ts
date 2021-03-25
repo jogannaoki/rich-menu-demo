@@ -12,10 +12,22 @@ if (!clientId) {
   throw new Error('Required environment variable CLIENT_ID is not set.')
 }
 
+const afterRegistrationRichMenuId = process.env.AFTER_REGISTRATION_RICH_MENU_ID
+if (!afterRegistrationRichMenuId) {
+  throw new Error('Required environment variable AFTER_REGISTRATION_RICH_MENU_ID is not set.')
+}
+
+const channelAccessToken = process.env.CHANNEL_ACCESS_TOKEN
+if (!channelAccessToken) {
+  throw new Error('Required environment variable CHANNEL_ACCESS_TOKEN is not set.')
+}
+
 const app = new cdk.App()
 new BackendStack(app, 'BackendStack', {
   env: { region: 'ap-northeast-1' },
   clientId,
+  afterRegistrationRichMenuId,
+  channelAccessToken,
   lambdaLayerDir,
   lambdaCodeDir,
 })

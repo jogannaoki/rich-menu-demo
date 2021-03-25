@@ -5,6 +5,8 @@ import { createLambdaAuthorizer, createLambdaLayer, createDemoLambda } from './a
 
 type BackendStackProps = StackProps & {
   clientId: string
+  afterRegistrationRichMenuId: string
+  channelAccessToken: string
   lambdaLayerDir: string
   lambdaCodeDir: string
 }
@@ -15,7 +17,11 @@ export class BackendStack extends Stack {
 
     const api = createApigateway(this)
     const layer = createLambdaLayer(this, props.lambdaLayerDir)
-    const demoLambda = createDemoLambda(this, layer, props.lambdaCodeDir)
+    const demoLambdaEnvironment = {
+      AFTER_REGISTRATION_RICH_MENU_ID: props.afterRegistrationRichMenuId,
+      CHANNEL_ACCESS_TOKEN: props.channelAccessToken,
+    }
+    const demoLambda = createDemoLambda(this, demoLambdaEnvironment, layer, props.lambdaCodeDir)
     const lambdaAuthorizerEnvironment = {
       CLIENT_ID: props.clientId,
     }

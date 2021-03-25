@@ -8,6 +8,8 @@ test('Empty Stack', () => {
   const stack = new Backend.BackendStack(app, 'MyTestStack', {
     env: { region: 'ap-northeast-1' },
     clientId: 'test',
+    afterRegistrationRichMenuId: 'test',
+    channelAccessToken: 'test',
     lambdaLayerDir: 'test',
     lambdaCodeDir: 'test',
   })
@@ -17,7 +19,7 @@ test('Empty Stack', () => {
       {
         Resources: {},
       },
-      MatchStyle.EXACT
-    )
+      MatchStyle.EXACT,
+    ),
   )
 })

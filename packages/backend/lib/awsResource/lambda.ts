@@ -37,7 +37,17 @@ export function createLambdaAuthorizer(
   return lambdaAuthorizer
 }
 
-export function createDemoLambda(scope: cdk.Construct, layer: LayerVersion, lambdaCodeDir: string): Function {
+export type demoLambdaEnvironment = {
+  AFTER_REGISTRATION_RICH_MENU_ID: string
+  CHANNEL_ACCESS_TOKEN: string
+}
+
+export function createDemoLambda(
+  scope: cdk.Construct,
+  environment: demoLambdaEnvironment,
+  layer: LayerVersion,
+  lambdaCodeDir: string,
+): Function {
   const loginLambda = new Function(scope, 'demo', {
     functionName: 'demo',
     code: Code.fromAsset(lambdaCodeDir),
@@ -45,6 +55,7 @@ export function createDemoLambda(scope: cdk.Construct, layer: LayerVersion, lamb
     runtime: Runtime.NODEJS_12_X,
     layers: [layer],
     timeout: Duration.seconds(30),
+    environment,
     tracing: Tracing.ACTIVE,
   })
   return loginLambda
