@@ -1,5 +1,4 @@
 import React from 'react'
-import liff from '@line/liff'
 import './App.css'
 import Demo from './components/screens/Demo'
 import LoadingPanel from './components/screens/LoadingPanel'
@@ -12,6 +11,8 @@ export const AuthContext = React.createContext<{ idToken: string | null }>({
 export const LoadingContext = React.createContext<{
   setIsCommunicating: React.Dispatch<React.SetStateAction<boolean>>
 }>({ setIsCommunicating: () => {} })
+
+const { liff } = window
 
 const App: React.FC = () => {
   const [idToken, setIdToken] = React.useState<string | null>(null)
