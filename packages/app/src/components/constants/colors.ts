@@ -1,5 +1,7 @@
+const BLACK = '#000000'
 const DIMGRAY = '#696969'
 const LIGHTGRAY = '#b5b5b5'
 const WHITE = '#FFFFFF'
+const TRANSPARENT_BLACK = 'rgba(0, 0, 0, 0.5)'
 
-export { DIMGRAY, LIGHTGRAY, WHITE }
+export { BLACK, DIMGRAY, LIGHTGRAY, WHITE, TRANSPARENT_BLACK }
