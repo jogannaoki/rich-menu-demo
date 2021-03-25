@@ -1,0 +1,96 @@
+{
+  "info": {
+    "_postman_id": "bd70f4e2-8b3d-42a9-a764-1a5e5af2f652",
+    "name": "richMenu",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Add rich menu",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_CHANNEL_ACCESS_TOKEN",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"size\":{\n        \"width\":800,\n        \"height\":270\n    },\n    \"selected\":true,\n    \"name\":\"メニュー\",\n    \"chatBarText\":\"メニュー\",\n    \"areas\":[\n        {\n          \"bounds\":{\n              \"x\":0,\n              \"y\":0,\n              \"width\":800,\n              \"height\":270\n          },\n          \"action\":{\n              \"type\":\"uri\",\n              \"uri\":\"https://liff.line.me/1655796310-QNO3lNRP\"\n          }\n        }\n    ]\n  }"
+        },
+        "url": {
+          "raw": "https://api.line.me/v2/bot/richmenu",
+          "protocol": "https",
+          "host": ["api", "line", "me"],
+          "path": ["v2", "bot", "richmenu"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post Image",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_CHANNEL_ACCESS_TOKEN",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "image/png",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "file",
+          "file": {
+            "src": "XXX.png"
+          }
+        },
+        "url": {
+          "raw": "https://api-data.line.me/v2/bot/richmenu/richmenu-XXXXXXXXXX/content",
+          "protocol": "https",
+          "host": ["api-data", "line", "me"],
+          "path": ["v2", "bot", "richmenu", "richmenu-XXXXXXXXXX", "content"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Set default rich menu",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_CHANNEL_ACCESS_TOKEN",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.line.me/v2/bot/user/all/richmenu/richmenu-XXXXXXXXXX",
+          "protocol": "https",
+          "host": ["api", "line", "me"],
+          "path": [
+            "v2",
+            "bot",
+            "user",
+            "all",
+            "richmenu",
+            "richmenu-XXXXXXXXXX"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
