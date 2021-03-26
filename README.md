@@ -1,7 +1,7 @@
 ## LIFF Demo App
 
-React と CDK で LIFF アプリを作ってみた
+ユーザーの登録状態に応じて LINE 公式アカウントのリッチメニューを切り替える【実装編】
 
 # Blog
 
-- https://dev.classmethod.jp/articles/react-cdk-liff/
+- https://dev.classmethod.jp/articles/line-richmanu-change-demo/
